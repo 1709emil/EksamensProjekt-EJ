@@ -1,0 +1,17 @@
+
+#canv{
+    background: rgb(199, 197, 197);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    padding: auto;
+    border:3.7px solid black;
+    width: 70%;
+    height: 87%;
+}
+
+
+   
