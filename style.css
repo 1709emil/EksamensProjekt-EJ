@@ -1,5 +1,8 @@
-
-#canv{
+* {
+margin: 0.7%;
+padding-left: 5%;
+}
+/* #canv{
     background: rgb(199, 197, 197);
     position: fixed;
     top:0;
@@ -11,7 +14,7 @@
     border:3.7px solid black;
     width: 70%;
     height: 87%;
-}
+} */
 
 
    
