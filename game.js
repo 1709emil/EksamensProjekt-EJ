@@ -11,12 +11,15 @@ let Player;
 window.onload=startGame();
 //sætter i gang i spillet samt starter gameloopet
 function startGame(){
-    Player= new player(450,330,50,50);
-    gameloop()
+    Player= new player(450,330,25,25);
+    gameloop();
+    document.addEventListener('keydown',Player.pressed);
+    document.addEventListener('keyup',Player.released);
 }
 
 
 function gameloop(){
     window.requestAnimationFrame(gameloop)
-    Player.drawPlayer(ctx);
+    Player.controls()
+    
 }
