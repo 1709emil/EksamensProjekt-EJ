@@ -19,6 +19,7 @@ drawPlayer(c){
     c.fill();
     c.beginPath();
     c.rect(this.x,this.y,this.width,this.height);
+    c.rect(,,3,3)
     c.fillStyle='red';
     c.fill();
 };
@@ -78,7 +79,7 @@ pressed(w){
     left=true} 
 
     if(w.key==='d'){
-    right=true} 
+    right=true}
 };
 released(e){
     if(e.key==='w'){
@@ -91,9 +92,28 @@ released(e){
     left=false} 
     
     if(e.key==='d'){
-    right=false} 
+    right=false}
 
 };
+};
 
+class gun{
+    constructor(fs){
+        this.Mx;
+        this.My;
+        this.bulletStartXPos;
+        this.bulletStartYPos;
+        this.bulletSpeed;
+        this.fireRate=fs;
+    };
 
-}
+    mouseCoords(event){
+      this.Mx=event.clientX;
+      this.My=event.clientY;  
+    };
+
+    shootGun(){
+        
+    }
+
+};
