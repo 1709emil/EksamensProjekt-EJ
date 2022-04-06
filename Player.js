@@ -10,18 +10,15 @@ class player{
         this.width=wit;
         this.height=hei;
         this.speed=2.5
+        this.color1='red';
     }
 
 drawPlayer(c){ 
     c.beginPath();
-    c.rect(0,0,canvas.width,canvas.height);
-    c.fillStyle='lightgrey';
-    c.fill();
-    c.beginPath();
     c.rect(this.x,this.y,this.width,this.height);
-    c.rect(,,3,3)
-    c.fillStyle='red';
+    c.fillStyle=this.color1;
     c.fill();
+    c.closePath();
 };
 
 controls(){
@@ -97,23 +94,29 @@ released(e){
 };
 };
 
-class gun{
-    constructor(fs){
-        this.Mx;
-        this.My;
-        this.bulletStartXPos;
-        this.bulletStartYPos;
-        this.bulletSpeed;
-        this.fireRate=fs;
-    };
 
-    mouseCoords(event){
-      this.Mx=event.clientX;
-      this.My=event.clientY;  
-    };
-
-    shootGun(){
+class Bullets{
+    constructor(x,y,r,color2,velocity){
+        this.bulletX=x;
+        this.bulletY=y;
+        this.radius=r;
+        this.color2=color2;
+        this.velocity=velocity;
+        this.fireRate;
         
-    }
+    };
+    shootGun(c){
+    c.beginPath()
+    c.arc(this.bulletX,this.bulletY,this.radius,0,Math.PI*2,false)
+    c.fillStyle=this.color2
+    c.fill()
+    
+    };
 
+    update(){
+    this.shootGun(ctx);
+    this.bulletX= this.bulletX + this.velocity.x;
+    this.bulletY= this.bulletY + this.velocity.y
+    };
 };
+
