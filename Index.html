@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journey of the Blocks</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
- <canvas id="canv"></canvas>
- <script src="Player.js"></script>
- <script src="Enemies.js"></script>  
- <script src="game.js"></script>
+
+    <div class="fixed ml-2 select-none text-lg"><span>Score:</span><span id="score">0</span></div>
+    <div class="fixed inset-0 flex items-center justify-center" id="gameCont">
+     <div class="bg-white max-w-sm w-full p-3 text-center">
+      <h1 class="text-3xl font-bold" id="textScore">0</h1>
+      <pc class="text-sm text-gray-700 mb-4">Points</p>
+      <div>
+        <button class="bg-blue-500 text-white w-full py-3 rounded-full" id="btnID">Start Game</button>
+      </div> 
+     </div>   
+    </div>
+
+    <canvas id="canv"></canvas>
+    <script src="Player.js"></script>
+    <script src="Enemies.js"></script>  
+    <script src="game.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,13 @@
+let enemySpeed=1.5;
 class Enemy{
     constructor(x,y,radius,color3,velocity){
        this.x=x;
        this.y=y;
        this.radius=radius;
        this.color3=color3;
-       this.velocity=velocity; 
+       this.velocity;
+       this.tempVelocity={x:null,y:null};
+       this.angle;
     };
 
 
@@ -18,21 +21,49 @@ class Enemy{
 
     updateEnemy(){
     this.drawEnemy(ctx);
-    this.x=this.x+this.velocity.x
-    this.y=this.y+this.velocity.y
+    this.angle=Math.atan2((Player.y+12.5)-this.y,(Player.x+12.5)-this.x);
+    this.tempVelocity={
+        x:Math.cos(this.angle)*enemySpeed,
+        y:Math.sin(this.angle)*enemySpeed
+        }
+    this.x=this.x+this.tempVelocity.x
+    this.y=this.y+this.tempVelocity.y
     }
 };
-let spawnRate=1000;
-
-function spwaner(){
-    setInterval(()=> {
-    let tempX=100;
-    let tempY=100;
-    let tempRadius=10;
-    let tempColor='green';
-    let tempVelocity={x:1,y:1};
-console.log(tempColor);
-    enemies.push(new Enemy(tempX,tempY,tempRadius,tempColor,tempVelocity));
-    console.log(enemies);
+let spawnRate=3000;
+let idInterval;
+function spawner(){
+    clearInterval(idInterval);
+    idInterval=setInterval(()=> {
+    let tempX,
+        tempY;
+            
+        function randomPos(){
+            let dis=Math.random()*200;
+            if(0<=dis&&dis<50){
+                tempY=0;
+                tempX=Math.random()*canvas.width;
+                return [tempX,tempY]
+            };
+            if(50<=dis&&dis<100){
+                tempX=0;
+                tempY=Math.random()*canvas.height;
+                return[tempX,tempY]
+            };
+            if(100<=dis&&dis<150){
+                tempY=canvas.height;
+                tempX=Math.random()*canvas.width;
+                return [tempX,tempY]
+            };
+            if(150<=dis&&dis<200){
+                tempX=canvas.width;
+                tempY=Math.random()*canvas.height;
+                return[tempX,tempY]
+            };
+        };
+    randomPos();
+    let tempRadius=12;
+    let tempColor='red';
+    enemies.push(new Enemy(tempX,tempY,tempRadius,tempColor,));
     },spawnRate)
 };

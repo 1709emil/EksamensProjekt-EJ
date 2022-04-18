@@ -4,18 +4,17 @@ let up=false,
     right=false;
 
 class player{
-    constructor(Xpos,Ypos,wit,hei){
+    constructor(Xpos,Ypos,r){
         this.x=Xpos;
         this.y=Ypos;
-        this.width=wit;
-        this.height=hei;
+        this.radius=r
         this.speed=2.5
-        this.color1='red';
+        this.color1='blue';
     }
 
 drawPlayer(c){ 
     c.beginPath();
-    c.rect(this.x,this.y,this.width,this.height);
+    c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
     c.fillStyle=this.color1;
     c.fill();
     c.closePath();
@@ -36,7 +35,7 @@ controls(){
 
     if(down){
         this.y+= this.speed;
-        if(this.y >= (canvas.height-this.height)){
+        if(this.y >= (canvas.height-this.radius)){
             this.y -=this.speed
             this.drawPlayer(ctx);
             return
@@ -56,7 +55,7 @@ controls(){
 
     if(right){
         this.x+= this.speed;
-        if(this.x >= (canvas.width-this.width)){
+        if(this.x >= (canvas.width-this.radius)){
             this.x -=this.speed
             this.drawPlayer(ctx);
             return
@@ -94,29 +93,29 @@ released(e){
 };
 };
 
-
+let bulletSpeed=6;
+let fireRate;
 class Bullets{
     constructor(x,y,r,color2,velocity){
-        this.bulletX=x;
-        this.bulletY=y;
+        this.x=x;
+        this.y=y;
         this.radius=r;
         this.color2=color2;
         this.velocity=velocity;
-        this.fireRate;
         
     };
-    shootGun(c){
+    drawBullets(c){
     c.beginPath()
-    c.arc(this.bulletX,this.bulletY,this.radius,0,Math.PI*2,false)
+    c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
     c.fillStyle=this.color2
     c.fill()
     
     };
 
     update(){
-    this.shootGun(ctx);
-    this.bulletX= this.bulletX + this.velocity.x;
-    this.bulletY= this.bulletY + this.velocity.y
+    this.drawBullets(ctx);
+    this.x= this.x + this.velocity.x;
+    this.y= this.y + this.velocity.y
     };
 };
 
