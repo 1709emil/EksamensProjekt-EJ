@@ -1,3 +1,4 @@
+let url="http://localhost:3001";
 let canvas=document.getElementById("canv");
 let ctx = canvas.getContext("2d");
 canvas.style.backgroundColor='lightgrey'
@@ -33,7 +34,7 @@ function initRestart(){
     Player= new player(450,330,13);;
     bullets=[];
     enemies=[];
-    console.log(enemies);
+    enemySpeed=1.5;
     score=0;
     scoreEl.innerHTML=0;
     textScore.innerHTML=0;

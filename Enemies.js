@@ -30,12 +30,14 @@ class Enemy{
     this.y=this.y+this.tempVelocity.y
     }
 };
-let spawnRate=3000;
+let spawnRate=950;
 let idInterval;
 function spawner(){
     clearInterval(idInterval);
     idInterval=setInterval(()=> {
-    let tempX,
+        enemySpeed+=0.005;
+        
+        let tempX,
         tempY;
             
         function randomPos(){
@@ -62,8 +64,8 @@ function spawner(){
             };
         };
     randomPos();
-    let tempRadius=12;
-    let tempColor='red';
-    enemies.push(new Enemy(tempX,tempY,tempRadius,tempColor,));
-    },spawnRate)
+        let tempRadius=12;
+        let tempColor='red';
+        enemies.push(new Enemy(tempX,tempY,tempRadius,tempColor,));
+        },spawnRate)
 };

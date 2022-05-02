@@ -9,12 +9,21 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-
-    <div class="fixed ml-2 select-none text-lg"><span>Score:</span><span id="score">0</span></div>
-    <div class="fixed inset-0 flex items-center justify-center" id="gameCont">
+    <div class="absolute ml-32 inset-y-0 right-0 p-4 " id="leaderboard">
+      <h1 class="fixed ml-2 text2x1 font-bold select-none">Leaderboard:</h1>
+      <div class="border-2 border-black bg-gray-600 bg-opacity-50  max-w-2xl-full p-40">
+        
+      </div>
+    </div>
+    
+    <!--div for score-->
+    <div class="fixed ml-1 select-none text-lg"><span>Score:</span><span id="score">0</span></div>
+    
+    <!--Pop up men start game og points-->
+    <div class=" fixed flex inset-0 ml-64 items-center" id="gameCont">
      <div class="bg-white max-w-sm w-full p-3 text-center">
-      <h1 class="text-3xl font-bold" id="textScore">0</h1>
-      <pc class="text-sm text-gray-700 mb-4">Points</p>
+      <h1 class="text-3xl font-bold select-none" id="textScore">0</h1>
+      <p class="text-sm text-gray-700 mb-4 select-none">Points</p>
       <div>
         <button class="bg-blue-500 text-white w-full py-3 rounded-full" id="btnID">Start Game</button>
       </div> 
