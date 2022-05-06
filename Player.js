@@ -1,3 +1,4 @@
+//variable der skal bruges i metode controls()
 let up=false,
     down=false,
     left=false,
@@ -11,7 +12,7 @@ class player{
         this.speed=2.5
         this.color1='blue';
     }
-
+// tegner spiller
 drawPlayer(c){ 
     c.beginPath();
     c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
@@ -19,12 +20,12 @@ drawPlayer(c){
     c.fill();
     c.closePath();
 };
-
+//metoden der styrer spillerens movment
 controls(){
     this.drawPlayer(ctx)
     if(up){
         this.y-= this.speed;
-        if(this.y <= 0){
+        if(this.y <= 0+this.radius){
             this.y +=this.speed
             this.drawPlayer(ctx);
             return
@@ -45,7 +46,7 @@ controls(){
 
     if(left){
         this.x-= this.speed;
-        if(this.x <= 0){
+        if(this.x <= 0+this.radius){
             this.x +=this.speed
             this.drawPlayer(ctx);
             return
@@ -94,7 +95,8 @@ released(e){
 };
 
 let bulletSpeed=6;
-let fireRate;
+
+
 class Bullets{
     constructor(x,y,r,color2,velocity){
         this.x=x;
@@ -104,6 +106,7 @@ class Bullets{
         this.velocity=velocity;
         
     };
+    // tegner skudne  
     drawBullets(c){
     c.beginPath()
     c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
@@ -111,11 +114,11 @@ class Bullets{
     c.fill()
     
     };
-
+    // opdater skudne postition
     update(){
-    this.drawBullets(ctx);
     this.x= this.x + this.velocity.x;
     this.y= this.y + this.velocity.y
+    this.drawBullets(ctx);
     };
 };
 

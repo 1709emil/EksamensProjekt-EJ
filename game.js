@@ -11,6 +11,7 @@ let bullets=[];
 let enemies=[];
 document.addEventListener('keydown',Player.pressed);
 document.addEventListener('keyup',Player.released);
+
 //når der klikkes laves der en bullet 
 canvas.addEventListener('click', (event) => {
      let angle = Math.atan2(event.clientY-Player.y,event.clientX-Player.x);
@@ -24,12 +25,13 @@ canvas.addEventListener('click', (event) => {
      5,
      'black',temVelocity));
     });
+    
 let scoreEl=document.querySelector('#score');
 let startGamebtn=document.querySelector('#btnID');
 let gameCont=document.querySelector('#gameCont')
 let textScore=document.querySelector('#textScore')
 
-
+// funktion til at genstarte spillet
 function initRestart(){
     Player= new player(450,330,13);;
     bullets=[];
@@ -52,6 +54,7 @@ function gameloop(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     frameID=requestAnimationFrame(gameloop);
     Player.controls();
+
     //kører igennem alle fjenderne og opdater dem
     enemies.forEach((enemy,identifer1)=>{
         enemy.updateEnemy();
@@ -62,7 +65,7 @@ function gameloop(){
             cancelAnimationFrame(frameID);
             gameCont.style.display='flex';
             textScore.innerHTML=score;
-            //initRestart();
+            initRestart();
             
         };
         //tjekker om en bullet har ramt en fjende, samt øger scoren 

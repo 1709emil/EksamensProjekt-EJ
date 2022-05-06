@@ -10,7 +10,7 @@ class Enemy{
        this.angle;
     };
 
-
+    // tegner fjenderne
     drawEnemy(ct){
     ct.beginPath();
     ct.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
@@ -18,7 +18,7 @@ class Enemy{
     ct.fill();
     ct.closePath();
     }
-
+    //opdater fjendernes positioner 
     updateEnemy(){
     this.drawEnemy(ctx);
     this.angle=Math.atan2((Player.y+12.5)-this.y,(Player.x+12.5)-this.x);
@@ -30,8 +30,10 @@ class Enemy{
     this.y=this.y+this.tempVelocity.y
     }
 };
+
 let spawnRate=950;
 let idInterval;
+//laver indstancer af enemy classen og spawer dem i random lokationer
 function spawner(){
     clearInterval(idInterval);
     idInterval=setInterval(()=> {
@@ -39,7 +41,7 @@ function spawner(){
         
         let tempX,
         tempY;
-            
+     
         function randomPos(){
             let dis=Math.random()*200;
             if(0<=dis&&dis<50){
