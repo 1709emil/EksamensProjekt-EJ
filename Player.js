@@ -1,4 +1,4 @@
-//variable der skal bruges i metode controls()
+//variable der skal bruges i metoden controls()
 let up=false,
     down=false,
     left=false,
@@ -95,8 +95,6 @@ released(e){
 };
 
 let bulletSpeed=6;
-
-
 class Bullets{
     constructor(x,y,r,color2,velocity){
         this.x=x;

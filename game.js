@@ -6,7 +6,7 @@ canvas.width=window.innerWidth*0.70;
 canvas.height=window.innerHeight*0.87;
 canvas.style.border='solid black 3px';
 
-let Player= new player(450,330,13);;
+let Player= new player(450,330,15);;
 let bullets=[];
 let enemies=[];
 document.addEventListener('keydown',Player.pressed);
@@ -33,7 +33,7 @@ let textScore=document.querySelector('#textScore')
 
 // funktion til at genstarte spillet
 function initRestart(){
-    Player= new player(450,330,13);;
+    Player= new player(450,330,15);
     bullets=[];
     enemies=[];
     enemySpeed=1.5;
@@ -65,8 +65,7 @@ function gameloop(){
             cancelAnimationFrame(frameID);
             gameCont.style.display='flex';
             textScore.innerHTML=score;
-            initRestart();
-            
+                 
         };
         //tjekker om en bullet har ramt en fjende, samt øger scoren 
         bullets.forEach((bullet,identifer2)=>{
