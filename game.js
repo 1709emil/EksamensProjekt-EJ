@@ -98,6 +98,7 @@ function gameloop(){
 
   
 };
+//test
 startGamebtn.addEventListener('click',()=>{
     initRestart();
     startGame();
